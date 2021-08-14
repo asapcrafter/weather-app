@@ -1,10 +1,11 @@
-let weather;
+// let weather;
 
 const getData = async function getWeatherData(userLocation) {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=6a0e226f90fe438f90b02617211408&q=${userLocation}&aqi=no`);
         const data = await response.json();
-        processData(data); //Passes API data to the object parser
+        const processedData = processData(data); //Passes API data to the object parser
+        return processedData;
     } catch (err) {
         console.log('Not a valid location');
     };
@@ -21,7 +22,8 @@ const processData = function processWeatherData(data) {
 
     console.log(city, region, temperature, condition, humidity, wind) //Test
 
-    weather = new MyWeather(city, region, temperature, condition, conditionIcon,humidity, wind);
+    const weatherObject = new MyWeather(city, region, temperature, condition, conditionIcon,humidity, wind);
+    return weatherObject;
 }
 
 class MyWeather {
@@ -36,7 +38,7 @@ class MyWeather {
     };
 }
 
-const renderDisplay = function renderDisplayOnDOM() {
+const renderDisplay = function renderDisplayOnDOM(weather) {
     const city = document.querySelector('.city');
     const region = document.querySelector('.region');
     const temperature = document.querySelector('.temperature');
@@ -54,8 +56,8 @@ const renderDisplay = function renderDisplayOnDOM() {
 
 //Display the default weather information 
 const loadDefault = async function loadDefaultWeather() {
-    await getData('Tracy');
-    renderDisplay();
+    const weatherData = await getData('Tracy');
+    renderDisplay(weatherData);
 }
 
 document.onload = loadDefault();
@@ -68,8 +70,8 @@ const submitLocation = async function submitLocation(event) {
             console.log('Form is not filled');
             return;
         };
-        await getData(location);
-    renderDisplay();
+        const weatherData = await getData(location);
+        renderDisplay(weatherData);
     //Clears the input form
     document.getElementById('location-form').value = null; 
 }
