@@ -9,6 +9,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    test
+    <div class="header-wrapper">
+        <div class="header">Weather App</div>
+    </div>
+    <div class="text"></div>
+    <div class="body-wrapper">
+        <div class="body-container">
+            <div class="form-container">
+                <ion-icon name="search-outline" id="search-icon"></ion-icon>
+                <input type="text" onfocus="this.value=''" id="location-form" placeholder="ZIP Code or City" required>
+                <ion-icon name="arrow-forward-circle-outline" id="submit-icon"></ion-icon>
+            </div>
+            <div class="weather-container">
+                <div class="city">test</div>
+                <div class="region">test</div>
+                <div class="temperature">test</div>
+                <div class="condition"></div>
+                <img src="#" id="condition-icon">
+                <div class="wind"></div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
