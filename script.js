@@ -6,7 +6,7 @@ const getData = async function getWeatherData(userLocation) {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=6a0e226f90fe438f90b02617211408&q=${userLocation}&aqi=no`);
         const data = await response.json();
-        // weatherData = data;
+        weatherData = data;
         processData(data);
     } catch (err) {
         console.log(err);
