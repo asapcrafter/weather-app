@@ -41,13 +41,14 @@ body {
   font-stretch: ultra-expanded;
   margin-top: 20px;
   padding: 20px;
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 650;
 }
 
 .body-container {
-  height: 500px;
-  width: 350px;
+  margin-top: 30px;
+  height: 420px;
+  min-width: 350px;
   padding: 10px;
   background-color: #90d7ff ;
   display: flex;  
@@ -65,6 +66,7 @@ body {
   background-color: var(--light-gray);
   border-radius: 25px;
   border: 1px var(--border-gray) solid;
+  align-self: center;
 }
 
 #location-form {
@@ -107,26 +109,54 @@ body {
 /* Weather Display */
 .weather-container {
   margin-top: 30px;
+  margin-left: 20px;
   font-weight: 600;
   font-size: 25px;
+  display: grid;
+  grid-template-areas: 
+    "a a a"
+    "b b b"
+    "c c e"
+    "c c e"
+    "f f d"
 }
 
 .city {
-
+  grid-area: a;
+  font-size: 50px;
+  font-weight: 300;
+  font-stretch: ultra-expanded;
 }
 
 .region {
-
+  grid-area: b;
+  font-weight: 300;
+  font-size: 20px;
+  padding-left: 5px;
 }
 
 .temperature {
+  margin-top: 10px;
+  grid-area: c;
+  font-size: 80px;
+  font-weight: 400;
 
 }
 
 .condition {
+  grid-area: d;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 33px;
+}
 
+#condition-icon {
+  grid-area: e;
+  width: 128px;
 }
 
 .wind {
-
+ grid-area: f;
+ font-size: 20px;
+ padding-left: 7px;
 }

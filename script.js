@@ -48,7 +48,7 @@ const renderDisplay = function renderDisplayOnDOM(weather) {
     
     city.innerHTML = weather.city; 
     region.innerHTML = weather.region;
-    temperature.innerHTML = `${weather.temperature} °F`;
+    temperature.innerHTML = `${weather.temperature}°F`;
     condition.innerHTML = weather.condition;
     conditionIcon.src = weather.conditionIcon;
     wind.innerHTML = `Wind: ${weather.wind} mph`; 
